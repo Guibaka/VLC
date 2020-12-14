@@ -26,9 +26,10 @@ public class Resizable extends ComponentAdapter {
 	@Override
 	public void componentResized(ComponentEvent e) {
 		//System.out.println("Before resize : " + e.getComponent().getSize().getHeight());
-		super.componentResized(e);
+		//super.componentResized(e);
 		//System.out.println("After resize : " + e.getComponent().getSize().getHeight());
 		if(e.getComponent().getHeight() > 120) {
+			m_frame.setSize(e.getComponent().getWidth(), 200); //ici
 			JPanel VLC = new JPanel();
 			VLC.setLayout(new BorderLayout());
 			VLC.add(m_playPauseB, BorderLayout.WEST);
