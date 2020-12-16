@@ -18,7 +18,7 @@ public class Resizable extends ComponentAdapter {
 	int m_height;
 	int m_width;
 
-	Resizable(JFrame f, JPanel soundP, JPanel playPauseB, int height, int width) {
+	Resizable(Main f, JPanel soundP, JPanel playPauseB, int height, int width) {
 		m_frame = f;
 		m_soundP = soundP;
 		m_playPauseB = playPauseB;
@@ -48,14 +48,24 @@ public class Resizable extends ComponentAdapter {
 			JList list = new JList();
 			JScrollPane listMusic = new JScrollPane(list);
 			m_frame.getContentPane().removeAll();//Il est important d'enlever tous les composants de la frame avant
+					
+			/*Initialise une JPanel pour le panel supplémentaire*/
+			JPanel panneauSup = new JPanel();
+			panneauSup.setLayout(new BorderLayout());
+			panneauSup.add(listMusic, BorderLayout.CENTER);
+			panneauSup.add(new SearchBar(), BorderLayout.SOUTH);
+			
+			/*Ajout de ces 2 component*/
 			m_frame.add(VLC, BorderLayout.NORTH);
-			m_frame.add(listMusic);
+			m_frame.add(panneauSup);			
 			m_frame.setVisible(true);
+			((Main) m_frame).setExtended(true);;
 		}else {/*Si la hauteur est inférieure au seuil on garde sa taille*/
 			m_frame.setSize(e.getComponent().getWidth(), m_height);
 			m_frame.getContentPane().removeAll();
 			m_frame.add(m_soundP, BorderLayout.CENTER);
 			m_frame.add(m_playPauseB, BorderLayout.WEST);
+			((Main) m_frame).setExtended(false);
 		}
 		
 	}

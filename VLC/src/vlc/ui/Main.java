@@ -12,6 +12,10 @@ public class Main extends JFrame{
 	int HEIGHT = 110;
 	int WIDTH = 500;
 	
+	/*Booléan permettant de savoir si le panneau supplémentaire
+	 * est existant dans notre frame*/
+	boolean extended = false;
+	
 	Main(String title){
 		super(title);
 		setSize(new Dimension(WIDTH, HEIGHT));
@@ -73,6 +77,15 @@ public class Main extends JFrame{
 				
 			}
 		}
+	}
+	
+	/*Getter et Setter du boolean extended*/
+	public boolean isExtended() {
+		return extended;
+	}
+	
+	public void setExtended(boolean b) {
+		extended = b;
 	}
 	
 }
