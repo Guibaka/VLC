@@ -52,6 +52,7 @@ public class Resizable extends ComponentAdapter {
 			m_frame.add(listMusic);
 			m_frame.setVisible(true);
 		}else {/*Si la hauteur est inférieure au seuil on garde sa taille*/
+			m_frame.setSize(e.getComponent().getWidth(), m_height);
 			m_frame.getContentPane().removeAll();
 			m_frame.add(m_soundP, BorderLayout.CENTER);
 			m_frame.add(m_playPauseB, BorderLayout.WEST);
